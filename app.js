@@ -27,7 +27,7 @@ function connectWpp(forceNewSession = false) {
             clientId: clientId
         }),
         puppeteer: {
-            headless: true,
+            headless: false,
             args: [
                 '--disable-dev-shm-usage',
                 '--no-sandbox'

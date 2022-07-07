@@ -15,7 +15,7 @@ let sessionCfg;
 if (fs.existsSync(SESSION_FILE_PATH)) {
     sessionCfg = require(SESSION_FILE_PATH);
 }
-// let user_dir = process.env.HOME + `\\AppData\\Local\\Google\\Chrome\\User Data`;
+let user_dir = process.env.HOME + `\\AppData\\Local\\Google\\Chrome\\User Data`;
 // const client = new Client({
 //     authStrategy: new LocalAuth()
 // });
@@ -23,11 +23,11 @@ try {
     fs.unlinkSync("./last.qr");
 } catch (err) {}
 global.client = new Client({
-    authStrategy: new LocalAuth({
-        clientId: "client---one"
-    }),
+    // authStrategy: new LocalAuth({
+    //     clientId: "client---one"
+    // }),
     puppeteer: {
-        // userDataDir: user_dir,
+        userDataDir: user_dir,
         headless: false,
         // args: [
         //     '--disable-gpu',
@@ -39,7 +39,7 @@ global.client = new Client({
         //     '--use-gl=egl'
         // ],
         // ignoreDefaultArgs: ['--disable-extensions'],
-        // executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+        executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
     }
 });
 
